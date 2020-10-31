@@ -1,0 +1,31 @@
+def getdate():
+    import datetime
+    return datetime.datetime.now()
+time = str(getdate())
+
+
+def fileCreator():
+    name = input("Enter your name: ").lower()
+    fileToOpen = input("\nwhat you want to enter\nenter exercise or dite: ").lower()
+    if fileToOpen.lower() != "exercise" and fileToOpen.lower() != "dite":
+        print("\nyou entered a wrong input\n")
+        conTinue()
+    Add = input("\ntype your entry:\n")
+    toAdd = "["+time+"]"+ Add+"\n"
+    f = open(name+fileToOpen+".txt", "a")
+    f.write(toAdd)
+    f.close()
+    print("\n\nyour entry has been saved\n")
+    conTinue()
+
+
+def conTinue():
+    print("do you want to make entry again\nenter y for yes or any other key to exit")
+    choice = input()
+    if choice.lower() == "y":
+        fileCreator()
+    else:
+        print("thank you")
+
+
+fileCreator()
